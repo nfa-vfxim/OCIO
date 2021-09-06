@@ -8,17 +8,13 @@ description: An ACES config generated from python
 
 
 roles:
-  color_picking: Output - Rec.709
-  color_timing: ACES - ACEScc
-  compositing_linear: ACES - ACEScg
+  color_picking: Output - sRGB
   compositing_log: Input - ADX - ADX10
+  matte_paint: Input - ADX - ADX10
+  texture_paint: Utility - sRGB - Texture
+  hdri: Utility - Linear - sRGB
   data: Utility - Raw
-  default: ACES - ACES2065-1
-  matte_paint: Utility - sRGB - Texture
-  reference: Utility - Raw
-  rendering: ACES - ACEScg
   scene_linear: ACES - ACEScg
-  texture_paint: ACES - ACEScc
 
 displays:
   ACES:
@@ -47,7 +43,7 @@ displays:
     - !<View> {name: Log, colorspace: Input - ADX - ADX10}
 
 active_displays: [ACES]
-active_views: [sRGB, DCDM, DCDM P3D60 Limited, DCDM P3D65 Limited, P3-D60, P3-DCI D60 simulation, P3-DCI D65 simulation, P3D65, P3D65 D60 simulation, P3D65 Rec.709 Limited, P3D65 ST2084 108 nits, Rec.2020, Rec.2020 P3D65 Limited, Rec.2020 Rec.709 Limited, Rec.2020 HLG 1000 nits, Rec.2020 ST2084 1000 nits, Rec.2020 ST2084 2000 nits, Rec.2020 ST2084 4000 nits, Rec.709, Rec.709 D60 sim., sRGB D60 sim., Raw, Log]
+active_views: [sRGB, Rec.709, P3D65, Raw]
 
 colorspaces:
   - !<ColorSpace>
@@ -68,7 +64,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScc color space
-      
+
       ACES Transform ID : ACEScsc.ACEScc_to_ACES
     isdata: false
     allocation: uniform
@@ -85,7 +81,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScct color space
-      
+
       ACES Transform ID : ACEScsc.ACEScct_to_ACES
     isdata: false
     allocation: uniform
@@ -102,7 +98,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACESproxy color space
-      
+
       ACES Transform ID : ACEScsc.ACESproxy10i_to_ACES
     isdata: false
     allocation: uniform
@@ -119,7 +115,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScg color space
-      
+
       ACES Transform ID : ACEScsc.ACEScg_to_ACES
     isdata: false
     allocation: lg2
@@ -133,7 +129,7 @@ colorspaces:
     bitdepth: 10ui
     description: |
       ADX10 color space - used for film scans
-      
+
       ACES Transform ID : ACEScsc.ADX10_to_ACES
     isdata: false
     allocation: uniform
@@ -153,7 +149,7 @@ colorspaces:
     bitdepth: 16ui
     description: |
       ADX16 color space - used for film scans
-      
+
       ACES Transform ID : ACEScsc.ADX16_to_ACES
     isdata: false
     allocation: uniform
@@ -173,7 +169,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI160) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI160.a1.v1
     isdata: false
     allocation: uniform
@@ -190,7 +186,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI200) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI200.a1.v1
     isdata: false
     allocation: uniform
@@ -207,7 +203,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI250) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI250.a1.v1
     isdata: false
     allocation: uniform
@@ -224,7 +220,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI320) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI320.a1.v1
     isdata: false
     allocation: uniform
@@ -241,7 +237,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI400) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI400.a1.v1
     isdata: false
     allocation: uniform
@@ -258,7 +254,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI500) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI500.a1.v1
     isdata: false
     allocation: uniform
@@ -275,7 +271,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI640) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI640.a1.v1
     isdata: false
     allocation: uniform
@@ -292,7 +288,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI800) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI800.a1.v1
     isdata: false
     allocation: uniform
@@ -309,7 +305,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI1000) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI1000.a1.v1
     isdata: false
     allocation: uniform
@@ -326,7 +322,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI1280) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI1280.a1.v1
     isdata: false
     allocation: uniform
@@ -343,7 +339,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI1600) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI1600.a1.v1
     isdata: false
     allocation: uniform
@@ -360,7 +356,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI2000) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI2000.a1.v1
     isdata: false
     allocation: uniform
@@ -377,7 +373,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI2560) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI2560.a1.v1
     isdata: false
     allocation: uniform
@@ -394,7 +390,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI3200) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI3200.a1.v1
     isdata: false
     allocation: uniform
@@ -1114,7 +1110,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log1 - S-Gamut
-      
+
       ACES Transform ID : IDT.Sony.SLog1_SGamut_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -1131,7 +1127,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log2 - S-Gamut
-      
+
       ACES Transform ID : IDT.Sony.SLog2_SGamut_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -1148,7 +1144,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log2 - S-Gamut Daylight
-      
+
       ACES Transform ID : IDT.Sony.SLog2_SGamut_Daylight_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -1165,7 +1161,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log2 - S-Gamut Tungsten
-      
+
       ACES Transform ID : IDT.Sony.SLog2_SGamut_Tungsten_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -1182,7 +1178,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log3 - S-Gamut3.Cine
-      
+
       ACES Transform ID : IDT.Sony.SLog3_SGamut3.Cine_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -1199,7 +1195,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log3 - S-Gamut3
-      
+
       ACES Transform ID : IDT.Sony.SLog3_SGamut3_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -1312,7 +1308,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - DCDM (P3D60 Limited) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.DCDM_P3D60.a1.0.3
     isdata: false
     allocation: uniform
@@ -1329,7 +1325,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3D65 (Rec.709 Limited) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3D65_709limit_48nits.a1.1
     isdata: false
     allocation: uniform
@@ -1346,7 +1342,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 (P3D65 Limited) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_100nits.a1.1
     isdata: false
     allocation: uniform
@@ -1363,7 +1359,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 (Rec.709 Limited) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_Rec709limited_100nits.a1.1
     isdata: false
     allocation: uniform
@@ -1380,7 +1376,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - DCDM Output Transform
-      
+
       ACES Transform ID : ODT.Academy.DCDM.a1.0.3
     isdata: false
     allocation: uniform
@@ -1401,7 +1397,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - DCDM (P3D65 Limited) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.DCDM_P3D65limited.a1.1
     isdata: false
     allocation: uniform
@@ -1422,7 +1418,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3-D60 Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3D60_48nits.a1.0.3
     isdata: false
     allocation: uniform
@@ -1443,7 +1439,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3D65 Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3D65_48nits.a1.1
     isdata: false
     allocation: uniform
@@ -1464,7 +1460,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3D65 (D60 simulation) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3D65_D60sim_48nits.a1.1
     isdata: false
     allocation: uniform
@@ -1485,7 +1481,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3-DCI (D60 simulation) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3DCI_48nits.a1.0.3
     isdata: false
     allocation: uniform
@@ -1506,7 +1502,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3-DCI (D65 simulation) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3DCI_D65sim_48nits.a1.1
     isdata: false
     allocation: uniform
@@ -1527,7 +1523,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -1548,7 +1544,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.709 Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec709_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -1569,7 +1565,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.709 (D60 sim.) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec709_D60sim_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -1590,7 +1586,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - sRGB Output Transform
-      
+
       ACES Transform ID : ODT.Academy.RGBmonitor_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -1611,7 +1607,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - sRGB (D60 sim.) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.RGBmonitor_D60sim_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -1632,7 +1628,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3D65 ST2084 (108 nits) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3D65_108nits_7.2nits_ST2084.a1.1
     isdata: false
     allocation: uniform
@@ -1653,7 +1649,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 HLG (1000 nits) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_1000nits_15nits_HLG.a1.1
     isdata: false
     allocation: uniform
@@ -1674,7 +1670,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 ST2084 (1000 nits) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_1000nits_15nits_ST2084.a1.1
     isdata: false
     allocation: uniform
@@ -1695,7 +1691,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 ST2084 (2000 nits) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_2000nits_15nits_ST2084.a1.1
     isdata: false
     allocation: uniform
@@ -1716,7 +1712,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 ST2084 (4000 nits) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_4000nits_15nits_ST2084.a1.1
     isdata: false
     allocation: uniform
@@ -2309,7 +2305,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACES Look Transform: ACES 1.0 to 0.1 emulation
-      
+
       ACES Transform ID : LMT.Academy.ACES_0_1_1.a1.0.3
     isdata: false
     allocation: lg2
@@ -2326,7 +2322,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACES Look Transform: ACES 1.0 to 0.2 emulation
-      
+
       ACES Transform ID : LMT.Academy.ACES_0_2_2.a1.0.3
     isdata: false
     allocation: lg2
@@ -2343,7 +2339,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACES Look Transform: ACES 1.0 to 0.7 emulation
-      
+
       ACES Transform ID : LMT.Academy.ACES_0_7_1.a1.0.3
     isdata: false
     allocation: lg2
@@ -2360,7 +2356,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACES Look Transform: Blue Light Artifact Fix
-      
+
       ACES Transform ID : LMT.Academy.BlueLightArtifactFix.a1.1
     isdata: false
     allocation: lg2
@@ -2385,7 +2381,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScg color space
-      
+
       ACES Transform ID : ACEScsc.ACEScg_to_ACES
     isdata: false
     allocation: lg2
@@ -2399,7 +2395,7 @@ colorspaces:
     bitdepth: 10ui
     description: |
       ADX10 color space - used for film scans
-      
+
       ACES Transform ID : ACEScsc.ADX10_to_ACES
     isdata: false
     allocation: uniform
@@ -2413,7 +2409,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScg color space
-      
+
       ACES Transform ID : ACEScsc.ACEScg_to_ACES
     isdata: false
     allocation: lg2
@@ -2427,7 +2423,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScg color space
-      
+
       ACES Transform ID : ACEScsc.ACEScg_to_ACES
     isdata: false
     allocation: lg2
@@ -2441,7 +2437,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScc color space
-      
+
       ACES Transform ID : ACEScsc.ACEScc_to_ACES
     isdata: false
     allocation: uniform
@@ -2489,7 +2485,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.709 Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec709_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -2504,7 +2500,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScc color space
-      
+
       ACES Transform ID : ACEScsc.ACEScc_to_ACES
     isdata: false
     allocation: uniform
@@ -2540,7 +2536,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScc color space
-      
+
       ACES Transform ID : ACEScsc.ACEScc_to_ACES
     isdata: false
     allocation: uniform
@@ -2554,7 +2550,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScc color space
-      
+
       ACES Transform ID : ACEScsc.ACEScc_to_ACES
     isdata: false
     allocation: uniform
@@ -2568,7 +2564,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScct color space
-      
+
       ACES Transform ID : ACEScsc.ACEScct_to_ACES
     isdata: false
     allocation: uniform
@@ -2582,7 +2578,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScct color space
-      
+
       ACES Transform ID : ACEScsc.ACEScct_to_ACES
     isdata: false
     allocation: uniform
@@ -2596,7 +2592,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACESproxy color space
-      
+
       ACES Transform ID : ACEScsc.ACESproxy10i_to_ACES
     isdata: false
     allocation: uniform
@@ -2610,7 +2606,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACESproxy color space
-      
+
       ACES Transform ID : ACEScsc.ACESproxy10i_to_ACES
     isdata: false
     allocation: uniform
@@ -2624,7 +2620,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScg color space
-      
+
       ACES Transform ID : ACEScsc.ACEScg_to_ACES
     isdata: false
     allocation: lg2
@@ -2638,7 +2634,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScg color space
-      
+
       ACES Transform ID : ACEScsc.ACEScg_to_ACES
     isdata: false
     allocation: lg2
@@ -2652,7 +2648,7 @@ colorspaces:
     bitdepth: 10ui
     description: |
       ADX10 color space - used for film scans
-      
+
       ACES Transform ID : ACEScsc.ADX10_to_ACES
     isdata: false
     allocation: uniform
@@ -2666,7 +2662,7 @@ colorspaces:
     bitdepth: 16ui
     description: |
       ADX16 color space - used for film scans
-      
+
       ACES Transform ID : ACEScsc.ADX16_to_ACES
     isdata: false
     allocation: uniform
@@ -2680,7 +2676,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI160) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI160.a1.v1
     isdata: false
     allocation: uniform
@@ -2694,7 +2690,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI200) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI200.a1.v1
     isdata: false
     allocation: uniform
@@ -2708,7 +2704,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI250) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI250.a1.v1
     isdata: false
     allocation: uniform
@@ -2722,7 +2718,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI320) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI320.a1.v1
     isdata: false
     allocation: uniform
@@ -2736,7 +2732,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI400) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI400.a1.v1
     isdata: false
     allocation: uniform
@@ -2750,7 +2746,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI500) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI500.a1.v1
     isdata: false
     allocation: uniform
@@ -2764,7 +2760,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI640) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI640.a1.v1
     isdata: false
     allocation: uniform
@@ -2778,7 +2774,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI800) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI800.a1.v1
     isdata: false
     allocation: uniform
@@ -2792,7 +2788,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI1000) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI1000.a1.v1
     isdata: false
     allocation: uniform
@@ -2806,7 +2802,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI1280) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI1280.a1.v1
     isdata: false
     allocation: uniform
@@ -2820,7 +2816,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI1600) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI1600.a1.v1
     isdata: false
     allocation: uniform
@@ -2834,7 +2830,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI2000) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI2000.a1.v1
     isdata: false
     allocation: uniform
@@ -2848,7 +2844,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI2560) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI2560.a1.v1
     isdata: false
     allocation: uniform
@@ -2862,7 +2858,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       V3 LogC (EI3200) - Wide Gamut
-      
+
       ACES Transform ID : IDT.ARRI.Alexa-v3-logC-EI3200.a1.v1
     isdata: false
     allocation: uniform
@@ -3488,7 +3484,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log1 - S-Gamut
-      
+
       ACES Transform ID : IDT.Sony.SLog1_SGamut_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -3502,7 +3498,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log2 - S-Gamut
-      
+
       ACES Transform ID : IDT.Sony.SLog2_SGamut_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -3516,7 +3512,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log2 - S-Gamut Daylight
-      
+
       ACES Transform ID : IDT.Sony.SLog2_SGamut_Daylight_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -3530,7 +3526,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log2 - S-Gamut Tungsten
-      
+
       ACES Transform ID : IDT.Sony.SLog2_SGamut_Tungsten_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -3544,7 +3540,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log3 - S-Gamut3.Cine
-      
+
       ACES Transform ID : IDT.Sony.SLog3_SGamut3.Cine_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -3558,7 +3554,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       S-Log3 - S-Gamut3
-      
+
       ACES Transform ID : IDT.Sony.SLog3_SGamut3_10i.a1.v1
     isdata: false
     allocation: uniform
@@ -3668,7 +3664,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - DCDM (P3D60 Limited) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.DCDM_P3D60.a1.0.3
     isdata: false
     allocation: uniform
@@ -3682,7 +3678,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3D65 (Rec.709 Limited) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3D65_709limit_48nits.a1.1
     isdata: false
     allocation: uniform
@@ -3696,7 +3692,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 (P3D65 Limited) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_100nits.a1.1
     isdata: false
     allocation: uniform
@@ -3710,7 +3706,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 (Rec.709 Limited) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_Rec709limited_100nits.a1.1
     isdata: false
     allocation: uniform
@@ -3724,7 +3720,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - DCDM Output Transform
-      
+
       ACES Transform ID : ODT.Academy.DCDM.a1.0.3
     isdata: false
     allocation: uniform
@@ -3739,7 +3735,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - DCDM (P3D65 Limited) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.DCDM_P3D65limited.a1.1
     isdata: false
     allocation: uniform
@@ -3754,7 +3750,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3-D60 Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3D60_48nits.a1.0.3
     isdata: false
     allocation: uniform
@@ -3769,7 +3765,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3D65 Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3D65_48nits.a1.1
     isdata: false
     allocation: uniform
@@ -3784,7 +3780,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3D65 (D60 simulation) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3D65_D60sim_48nits.a1.1
     isdata: false
     allocation: uniform
@@ -3799,7 +3795,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3-DCI (D60 simulation) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3DCI_48nits.a1.0.3
     isdata: false
     allocation: uniform
@@ -3814,7 +3810,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3-DCI (D65 simulation) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3DCI_D65sim_48nits.a1.1
     isdata: false
     allocation: uniform
@@ -3829,7 +3825,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -3844,7 +3840,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.709 Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec709_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -3859,7 +3855,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.709 (D60 sim.) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec709_D60sim_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -3874,7 +3870,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - sRGB Output Transform
-      
+
       ACES Transform ID : ODT.Academy.RGBmonitor_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -3889,7 +3885,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - sRGB (D60 sim.) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.RGBmonitor_D60sim_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -3904,7 +3900,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - P3D65 ST2084 (108 nits) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.P3D65_108nits_7.2nits_ST2084.a1.1
     isdata: false
     allocation: uniform
@@ -3919,7 +3915,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 HLG (1000 nits) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_1000nits_15nits_HLG.a1.1
     isdata: false
     allocation: uniform
@@ -3934,7 +3930,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 ST2084 (1000 nits) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_1000nits_15nits_ST2084.a1.1
     isdata: false
     allocation: uniform
@@ -3949,7 +3945,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 ST2084 (2000 nits) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_2000nits_15nits_ST2084.a1.1
     isdata: false
     allocation: uniform
@@ -3964,7 +3960,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.2020 ST2084 (4000 nits) Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec2020_4000nits_15nits_ST2084.a1.1
     isdata: false
     allocation: uniform
@@ -4495,7 +4491,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACES Look Transform: ACES 1.0 to 0.1 emulation
-      
+
       ACES Transform ID : LMT.Academy.ACES_0_1_1.a1.0.3
     isdata: false
     allocation: lg2
@@ -4509,7 +4505,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACES Look Transform: ACES 1.0 to 0.2 emulation
-      
+
       ACES Transform ID : LMT.Academy.ACES_0_2_2.a1.0.3
     isdata: false
     allocation: lg2
@@ -4523,7 +4519,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACES Look Transform: ACES 1.0 to 0.7 emulation
-      
+
       ACES Transform ID : LMT.Academy.ACES_0_7_1.a1.0.3
     isdata: false
     allocation: lg2
@@ -4537,7 +4533,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACES Look Transform: Blue Light Artifact Fix
-      
+
       ACES Transform ID : LMT.Academy.BlueLightArtifactFix.a1.1
     isdata: false
     allocation: lg2
@@ -4562,7 +4558,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScg color space
-      
+
       ACES Transform ID : ACEScsc.ACEScg_to_ACES
     isdata: false
     allocation: lg2
@@ -4576,7 +4572,7 @@ colorspaces:
     bitdepth: 10ui
     description: |
       ADX10 color space - used for film scans
-      
+
       ACES Transform ID : ACEScsc.ADX10_to_ACES
     isdata: false
     allocation: uniform
@@ -4590,7 +4586,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScg color space
-      
+
       ACES Transform ID : ACEScsc.ACEScg_to_ACES
     isdata: false
     allocation: lg2
@@ -4604,7 +4600,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScg color space
-      
+
       ACES Transform ID : ACEScsc.ACEScg_to_ACES
     isdata: false
     allocation: lg2
@@ -4618,7 +4614,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScc color space
-      
+
       ACES Transform ID : ACEScsc.ACEScc_to_ACES
     isdata: false
     allocation: uniform
@@ -4666,7 +4662,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       ACES 1.0 Output - Rec.709 Output Transform
-      
+
       ACES Transform ID : ODT.Academy.Rec709_100nits_dim.a1.0.3
     isdata: false
     allocation: uniform
@@ -4681,7 +4677,7 @@ colorspaces:
     bitdepth: 32f
     description: |
       The ACEScc color space
-      
+
       ACES Transform ID : ACEScsc.ACEScc_to_ACES
     isdata: false
     allocation: uniform
